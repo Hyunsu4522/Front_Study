@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rotote-box{
+            background: #eff155;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 12px;
+            animation: roll 1s infinite;
+        }
+        @keyframes roll{
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="rotote-box"></div>
+    <div class="rotote-box"></div>
+    <div class="rotote-box"></div>
+</body>
+</html>
