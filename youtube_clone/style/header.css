@@ -1,0 +1,119 @@
+.header{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    height: 55px;
+    background-color: #212121ff;
+    border-bottom: 1px solid #4d4d4d;
+}
+.header .left-section {
+    display: flex;
+    align-items: center;
+}
+.header .left-section .hambuger-menu{
+    height: 24px;
+    margin: 0 24px;
+}
+.header .left-section .youtube-logo {
+    height: 70px;
+}
+.header .middle-section{
+    position: relative;
+   display: flex;
+   align-items: center;
+   max-width: 500px;
+   margin-left: 70px;
+   margin-right: 35px;
+   flex: 1;
+}
+.search-button{
+    height: 40px;
+    width: 66px;
+    background:#323232;
+    border: 1px solid #4d4d4d;
+    margin-right: 10px;
+    border-radius: 0 20px 20px 0;
+    border-left: none;
+}
+.search-icon{
+    height: 25px;
+}
+.search-bar{
+    color: #fff;
+    height: 36px;
+    padding-left: 10px;
+    font-size: 16px;
+    background:#121212;
+    border: 1px solid #4d4d4d;
+    border-radius: 20px 0 0 20px;
+    flex: 1;
+}
+.voice-search-button{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border: none;
+    background:#121212;
+}
+.search-button,
+.voice-search-button,
+.upload-icon-containar,
+.notifications-icon-containar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.voice-search-button:hover{
+   background:rgba(225, 225, 225, 0.1);
+}
+
+.tooltip{
+    position: absolute;
+    background: #ccc;
+    color: #fff;
+    padding: 4px 8px;
+    bottom: -30px;
+    border-radius: 2px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.search-button:hover .tooltip,
+.voice-search-button:hover .tooltip,
+.upload-icon-containar:hover .tooltip,
+.notifications-icon-containar:hover .tooltip{
+    opacity: 1;
+    
+}
+.right-section{
+    width: 150px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.current-user-picture{
+    height: 32px;
+    border-radius: 16px;
+}
+.upload-icon,
+.notifications-icon{
+    height: 24px;
+}
+.notifications-icon-containar{
+    position: relative;
+}
+.notification-cout{
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    background: red;
+    color: #fff;
+    font-size: 11px;
+    padding: 1px 5px;
+    border-radius: 10px;
+}
