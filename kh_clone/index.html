@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kh</title>
+    <link rel="stylesheet" href="./style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class="login-Wrap">
+            <div class="login-content">
+                <div class="logo"><img src="./assets/images/login_logo.png" alt=""></div>
+            </div>
+            <div class="login_form">
+                <div class="id" style="position: relative;">
+                    <img src="./assets/icons/login_id_m.png" alt="id 아이콘">
+                    <div>
+                        <input type="text" id="id" placeholder="id">
+                        <!-- <label for="id">id</label> -->
+                    </div>
+                </div>
+                <div class="pw" style="position: relative;">
+                    <img src="./assets/icons/login_pw_m.png" alt="pw 아이콘">
+                    <div>
+                        <input type="password" id="password" placeholder="password">
+                        <!-- <label for="password">password</label> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="login_btn">
+                <div class="btn_login">
+                    <a href="#none">KH RAD LOGIN</a>
+                </div>
+                 <div class="btn_sign">
+                    <a href="#none">SIGN UP</a>
+                    <input type="hidden" id="site_id" name="site_id" value="atents">
+                </div>
+            </div>
+            <div class="login_find">
+                <div class="find">
+                    <a href="#none">아이디찾기</a>
+                    <a href="#none">비밀번호찾기</a>
+                </div>
+                <div class="login_check">
+					<label for="logincheck">KH RAD의 정보를 외부에 유출하지 않겠습니다.</label>
+					<input type="checkbox" name="logincheck" id="logincheck" value="0" checked="checked">
+				</div>
+            </div>
+        </div>
+    </section>
+    <footer id="loginFooter">
+		<div class="footerWrap">
+			<p class="txt1">Copyright&nbsp;©&nbsp;1998-2023&nbsp;KH Information Educational Institute All Right Reserved</p>
+			<p class="txt2">Copyright © 1998-2022 KH IEI All Right Reserved</p>
+		</div>
+	</footer>
+</body>
+</html>

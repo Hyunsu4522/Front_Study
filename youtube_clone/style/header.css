@@ -2,9 +2,14 @@
     display: flex;
     /* flex-direction: row; */
     justify-content: space-between;
+    width: 100%;
     height: 55px;
     background-color: #212121ff;
     border-bottom: 1px solid #4d4d4d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 }
 .header .left-section {
     display: flex;
