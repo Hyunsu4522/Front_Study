@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            height: 200px;
+            border: 1px solid red;
+        }
+        .flex{
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Practice1</h2>
+    <form>
+        <fieldset>
+            <legend>취미</legend>
+            <div class="flex">
+                <div>
+                    <input type="checkbox" name="hobby" value="전체선택" id="all" onchange="allCheck()">
+                    <label for="all">전체선택</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="chk" name="hobby" value="종합" id="total" onchange="allCheckBoxTrigger()">
+                    <label for="total">종합</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="소설" id="novel" onchange="allCheckBoxTrigger()">
+                    <label for="novel">소설</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="시/에세이" id="essay" onchange="allCheckBoxTrigger()">
+                    <label for="essay">시/에세이</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="경제/경영" id="management" onchange="allCheckBoxTrigger()">
+                    <label for="management">경제/경영</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="자기계발" id="development" onchange="allCheckBoxTrigger()">
+                    <label for="development">자기계발</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="아동" id="child" onchange="allCheckBoxTrigger()">
+                    <label for="child">아동</label>
+                    <br>
+                    <input type="checkbox" class="chk" name="hobby" value="여행" id="travel" onchange="allCheckBoxTrigger()">
+                    <label for="travel">여행</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="과학" id="science" onchange="allCheckBoxTrigger()">
+                    <label for="science">과학</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="역사/문화" id="culture" onchange="allCheckBoxTrigger()">
+                    <label for="culture">역사/문화</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="외국어" id="language" onchange="allCheckBoxTrigger()">
+                    <label for="language">외국어</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="컴퓨터" id="computer" onchange="allCheckBoxTrigger()">
+                    <label for="computer">컴퓨터</label>
+    
+                    <input type="checkbox" class="chk" name="hobby" value="만화" id="comic" onchange="allCheckBoxTrigger()">
+                    <label for="comic">만화</label>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <br>
+
+    <button onclick="selectCategory()">카테고리 선택</button>
+    <div id="area1" class="area"></div>
+    
+
+    <script>
+        const allCheckBox = document.getElementById('all');
+        const checkboxes = document.querySelectorAll('.chk');
+
+        allCheckBox.addEventListener('click', function () {
+            const isChecked = allCheckBox.checked;
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = isChecked;
+            });
+        });
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener('click', function () {
+                const totalCnt = checkboxes.length;
+                const checkedCnt = document.querySelectorAll('.chk:checked').length;
+
+                allCheckBox.checked = totalCnt === checkedCnt;
+            });
+        });
+
+        function selectCategory() {
+            const selectedHobbies = Array.from(checkboxes)
+                .filter(function (checkbox) {
+                    return checkbox.checked;
+                })
+                .map(function (checkbox) {
+                    return checkbox.value;
+                });
+
+            const area1 = document.getElementById('area1');
+            area1.textContent = selectedHobbies.join(', ');
+        }
+    </script>
+   
+</body>
+</html>
+
+
