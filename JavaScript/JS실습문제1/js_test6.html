@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            height: 200px;
+            border: 1px solid red;
+        }
+        .flex{
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Practice3</h2>
+    <form>
+        <fieldset>
+            <legend>회원가입</legend>
+            아이디 : <input type="text" name="userId" id="userId" onkeyup="checkUserId();"><span id="userIdMessage"></span><br><br>
+            비밀번호  : <input type="password" name="userPwd" id="userPwd"><br><br>
+            비밀번호 확인 : <input type="password" id="checkPwd" onblur="checkPassword();"><span id="passwordMessage"></span><br><br>
+            이름 : <input type="text" name="userName" id="userName"><br><br>
+            <button onclick="validate();">회원가입</button>
+        </fieldset>
+    </form>
+    <br>
+    <script>
+        
+    </script>
+
+    
+
+
+   
+</body>
+</html>
+
+
