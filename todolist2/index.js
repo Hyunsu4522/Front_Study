@@ -1,20 +1,23 @@
-const todoList = [];
+document.addEventListener("DOMContentLoaded", function () {
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
-function addTodo(ev){
+    function saveTodoList() {
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+    }
 
-    if (document.getElementById('search-input').value.trim() === '')
-        return;
+    function loadTodoList() {
+        const toDoListView = document.querySelector('#todo-list-view');
+        toDoListView.innerHTML = '';
+        todoList.forEach(function (todoTitle) {
+            const todoNode = getTodoNode(todoTitle);
+            toDoListView.appendChild(todoNode);
+        });
+    }
 
-    //추가할 일정요소 만들기
-    function getTodoNode(){
-         //요소만들기
-        //내가 입력한 값 가지고오기
-        const todoTitle = document.getElementById('search-input').value;
-
-        //todo요소만들고 붙여주기
-        const todoNode = document.createElement('div'); // <div>title</div>
+    function getTodoNode(todoTitle) {
+        const todoNode = document.createElement('div');
         todoNode.innerText = todoTitle;
-        todoNode.onclick = function(){
+        todoNode.onclick = function () {
             todoNode.isDone = !todoNode.isDone;
             if (todoNode.isDone) {
                 this.className = 'done';
@@ -22,29 +25,44 @@ function addTodo(ev){
                 this.className = '';
             }
         }
-        
-        //요소삭제버튼 만들고 붙여주기
-        const removeBtn = document.createElement('button'); // <button><i class='fa-solid fa-xmark'></i></button>
+
+        const removeBtn = document.createElement('button');
         removeBtn.className = 'remove-btn';
         removeBtn.innerHTML = "<i class='fa-solid fa-xmark'></i>";
-        todoNode.appendChild(removeBtn); // <div>밥먹기<button><i class='fa-solid fa-xmark'></i></button></div>
-        removeBtn.onclick = function(){
-            this.parentNode.remove();
+        todoNode.appendChild(removeBtn);
+        removeBtn.onclick = function () {
+            const index = todoList.indexOf(todoTitle);
+            if (index !== -1) {
+                todoList.splice(index, 1);
+                saveTodoList();
+                loadTodoList();
+            }
         }
-
-        document.getElementById('search-input').value = '';
 
         return todoNode;
     }
 
-    //엔터키를 입력했다면 해당코드 실행
-    if (!ev.keyCode || ev.keyCode === 13) {
-        //일정을 보여주는 영역 가져오기
-        const toDoListView = document.querySelector('#todo-list-view');
-        // 요소 생성하는 함수호출
-        const todoNode = getTodoNode();
-        toDoListView.appendChild(todoNode);
+    function addTodo() {
+        const inputElement = document.getElementById('search-input');
+        const inputValue = inputElement.value.trim();
+        if (inputValue !== '') {
+            todoList.push(inputValue);
+            saveTodoList();
+            const todoNode = getTodoNode(inputValue);
+            document.getElementById('todo-list-view').appendChild(todoNode);
+            inputElement.value = '';
+        }
     }
 
+    document.querySelector('button').addEventListener('click', addTodo);
 
-}
+
+    document.getElementById('search-input').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            addTodo();
+        }
+    });
+
+
+    loadTodoList();
+});
